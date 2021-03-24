@@ -1,6 +1,7 @@
 # gody
 
 A new Flutter project.
+This is a note-taking and reminder app :))
 
 ## Getting Started
 
