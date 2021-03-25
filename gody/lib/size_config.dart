@@ -1,4 +1,6 @@
+/Thêm thư viện Material App và thư viện Widgets 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 //Định nghĩa lớp kích thước màn hình
 class SizeConfig {
