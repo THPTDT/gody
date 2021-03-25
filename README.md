@@ -1,2 +1,2 @@
 # gody
-A note-taking and remider app in Flutter
+A note-taking and reminder app in Flutter
