@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:after_layout/after_layout.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:gody/login_screen.dart';
 
 //Gọi hàm main() chạy app
 void main() => runApp(MyApp());
@@ -65,24 +66,91 @@ class IntroScreen extends StatefulWidget {
 }
 
 class introScreenState extends State<IntroScreen> {
-  //Màn hifng giới thiệu
+  //Màn hình giới thiệu
   List<PageViewModel> getPages() {
     return [
-      PageViewModel(),
-      PageViewModel(),
-      PageViewModel(),
+      PageViewModel(
+        title: "Quản lý thời gian",
+        body: "Với Gody bạn có thể  quản lý thời gian biểu dễ dàng!",
+        image: Center(
+            child: Image.asset('assets/images/clock.png', height: 175.0)),
+        footer: Text('Cùng khám phá nào!!!'),
+        decoration: const PageDecoration(
+          titleTextStyle: TextStyle(
+              fontFamily: 'GoogleSans',
+              fontSize: 20.0,
+              fontWeight: FontWeight.w700),
+          bodyTextStyle: TextStyle(
+              fontFamily: 'GoogleSans',
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600),
+          pageColor: Colors.white,
+        ),
+      ),
+      PageViewModel(
+        title: 'Quản lý điểm số',
+        body: 'Gody giúp bạn dễ dàng quản lý điểm số của mình!',
+        image: Center(
+            child: Image.asset('assets/images/point.png', height: 175.0)),
+        decoration: const PageDecoration(
+          pageColor: Colors.white,
+          titleTextStyle: TextStyle(
+              fontFamily: 'GoogleSans',
+              fontSize: 20.0,
+              fontWeight: FontWeight.w700),
+          bodyTextStyle: TextStyle(
+              fontFamily: 'GoogleSans',
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600),
+        ),
+      ),
+      PageViewModel(
+        title: 'Sắp xếp thời gian',
+        body: 'Gody giúp bạn tối ưu việc sắp xếp thời gian!',
+        image: Center(
+            child: Image.asset('assets/images/timetable.png', height: 175.0)),
+        decoration: const PageDecoration(
+          pageColor: Colors.white,
+          titleTextStyle: TextStyle(
+              fontFamily: 'GoogleSans',
+              fontSize: 20.0,
+              fontWeight: FontWeight.w700),
+          bodyTextStyle: TextStyle(
+              fontFamily: 'GoogleSans',
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600),
+        ),
+      ),
     ];
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Center(child: Text('Chào mừng đến với Gody!')),
+      ),
       body: IntroductionScreen(
-        globalBackgroundColor: Colors.amberAccent,
+        globalBackgroundColor: Colors.white,
         pages: getPages(),
         showNextButton: true,
-        done: Text('Tiếp'),
-        onDone: () {},
+        showDoneButton: true,
+        done: const Text(' Xong ',
+            style: TextStyle(
+                fontFamily: 'GoogleSans',
+                color: Colors.white,
+                fontWeight: FontWeight.w600)),
+        next: const Text(' Tiếp ',
+            style: TextStyle(
+                fontFamily: 'GoogleSans',
+                color: Colors.white,
+                fontWeight: FontWeight.w600)),
+        doneColor: Colors.lightBlue[400],
+        nextColor: Colors.lightBlue[400],
+        onDone: () {
+          Navigator.push(context,
+              new MaterialPageRoute(builder: (context) => LoginScreen()));
+        },
       ),
     );
   }
