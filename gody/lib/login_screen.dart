@@ -1,11 +1,14 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreenState createState() => LoginScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   @override
-  Widget build(BuildContext context) {}
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      home: Scaffold(),
+    );
+  }
 }

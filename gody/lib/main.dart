@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:after_layout/after_layout.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:gody/login_screen.dart';
+import 'package:gody/home_screen.dart';
 
 //Gọi hàm main() chạy app
 void main() => runApp(MyApp());
@@ -22,11 +23,11 @@ class MyApp extends StatelessWidget {
 //Khởi tạo lớp Splash
 class Splash extends StatefulWidget {
   @override
-  splashState createState() => new splashState();
+  _SplashState createState() => new _SplashState();
 }
 
 //Khởi tạo lớp SplashState
-class splashState extends State<Splash> with AfterLayoutMixin<Splash> {
+class _SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
   Future kiemtraSeen() async {
     //Xử lý bất đồng bộ để lấy giá trị trả về của hàm kiemtraSeen
     SharedPreferences prefs =
@@ -49,23 +50,38 @@ class splashState extends State<Splash> with AfterLayoutMixin<Splash> {
       kiemtraSeen(); //Gọi hàm kiemtraSeen để kiểm tra
   @override
   Widget build(BuildContext context) {
-    return Scaffold(); //Màn hình Loading
-  }
-}
-
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    //Màn hình chính khi vào app
-    return new Scaffold();
+    return new MaterialApp(
+      home: new Scaffold(
+        backgroundColor: Colors.white,
+        body: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('assets/images/logo.png', height: 175.0),
+              SizedBox(height: 30.0),
+              CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.lightBlue),
+              ),
+              Padding(padding: EdgeInsets.fromLTRB(0, 30, 0, 30)),
+              Text(' Loading... ',
+                  style: TextStyle(
+                    fontFamily: 'GoogleSans',
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ],
+          ),
+        ),
+      ),
+    ); //Màn hình Loading
   }
 }
 
 class IntroScreen extends StatefulWidget {
-  introScreenState createState() => introScreenState();
+  _IntroScreenState createState() => _IntroScreenState();
 }
 
-class introScreenState extends State<IntroScreen> {
+class _IntroScreenState extends State<IntroScreen> {
   //Màn hình giới thiệu
   List<PageViewModel> getPages() {
     return [
