@@ -55,7 +55,7 @@ class _SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
         backgroundColor: Colors.white,
         body: Container(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset('assets/images/logo.png', height: 175.0),
               SizedBox(height: 30.0),
@@ -144,19 +144,20 @@ class _IntroScreenState extends State<IntroScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
         title: Center(child: Text('Chào mừng đến với Gody!')),
       ),
       body: IntroductionScreen(
         globalBackgroundColor: Colors.white,
         pages: getPages(),
-        showNextButton: true,
         showDoneButton: true,
-        done: const Text(' Xong ',
+        done: const Text('',
             style: TextStyle(
                 fontFamily: 'GoogleSans',
                 color: Colors.white,
                 fontWeight: FontWeight.w600)),
-        next: const Text(' Tiếp ',
+        next: const Text('Next',
             style: TextStyle(
                 fontFamily: 'GoogleSans',
                 color: Colors.white,
