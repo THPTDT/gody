@@ -57,18 +57,16 @@ class _SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset('assets/images/logo.png', height: 175.0),
-              SizedBox(height: 30.0),
+              Center(child: Image.asset('assets/images/logo.png', height: 175.0,),),
               CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.lightBlue),
               ),
-              Padding(padding: EdgeInsets.fromLTRB(0, 30, 0, 30)),
-              Text(' Loading... ',
+              Center(child: Text(' Loading... ',
                   style: TextStyle(
                     fontFamily: 'GoogleSans',
-                    fontSize: 30.0,
+                    fontSize: 35.0,
                     fontWeight: FontWeight.bold,
-                  )),
+              ))),
             ],
           ),
         ),
@@ -146,24 +144,30 @@ class _IntroScreenState extends State<IntroScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        title: Center(child: Text('Chào mừng đến với Gody!')),
+        title: Center(child: Text('GODY',
+        style: TextStyle(
+          fontFamily: 'GoogleSans',
+          fontSize: 30.0,
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+        ))),
       ),
       body: IntroductionScreen(
         globalBackgroundColor: Colors.white,
         pages: getPages(),
         showDoneButton: true,
-        done: const Text('',
+        done: const Text('Done',
             style: TextStyle(
                 fontFamily: 'GoogleSans',
-                color: Colors.white,
-                fontWeight: FontWeight.w600)),
+                color: Colors.black,
+                fontWeight: FontWeight.bold),),
         next: const Text('Next',
             style: TextStyle(
                 fontFamily: 'GoogleSans',
-                color: Colors.white,
-                fontWeight: FontWeight.w600)),
-        doneColor: Colors.lightBlue[400],
-        nextColor: Colors.lightBlue[400],
+                color: Colors.black,
+                fontWeight: FontWeight.bold)),
+        doneColor: Colors.blue,
+        nextColor: Colors.blue,
         onDone: () {
           Navigator.push(context,
               new MaterialPageRoute(builder: (context) => LoginScreen()));
