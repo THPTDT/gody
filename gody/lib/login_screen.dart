@@ -34,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontWeight: FontWeight.bold,
                     color: Colors.black54,
                   ),
-                  hintText: 'Nhap ten nguoi dung hoac email',
+                  hintText: 'Nhập tên người dùng hoặc email',
                   hintStyle: TextStyle(
                     fontFamily: 'GoogleSans',
                   ),
@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: Colors.black54,
                         fontWeight: FontWeight.bold,
                       ),
-                      hintText: 'Nhap mat khau cua ban',
+                      hintText: 'Nhập mật khẩu của bạn',
                       hintStyle: TextStyle(
                         fontFamily: 'GoogleSans',
                       ),
@@ -70,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(
                 child: ElevatedButton(
-                  child: Text('Dang nhap'),
+                  child: Text('Đăng nhập'),
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     primary: Colors.blue,
