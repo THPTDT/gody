@@ -38,37 +38,55 @@ class _LoginScreenState extends State<LoginScreen> {
                   hintStyle: TextStyle(
                     fontFamily: 'GoogleSans',
                   ),
-                ),),
-              Stack(alignment: AlignmentDirectional.centerEnd,
-              children: [
-                TextField(obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  labelStyle: TextStyle(
-                    fontFamily: 'GoogleSans',
-                    color: Colors.black54,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  hintText: 'Nhap mat khau cua ban',
-                  hintStyle: TextStyle(
-                    fontFamily: 'GoogleSans',
-                  ),
-                ),),
-                Text('Hien', style: TextStyle(
-                  fontFamily: 'GoogleSans',
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue,
-                ),)
-              ],),
-              SizedBox(child: ElevatedButton(child: Text('Dang nhap'),
-              onPressed: (){},
-              style: ButtonStyle(
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(borderRadius: BorderRadius,),
                 ),
-              ),),
-              height: 30.0,
-              width: double.infinity,
+              ),
+              Stack(
+                alignment: AlignmentDirectional.centerEnd,
+                children: [
+                  TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      labelStyle: TextStyle(
+                        fontFamily: 'GoogleSans',
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      hintText: 'Nhap mat khau cua ban',
+                      hintStyle: TextStyle(
+                        fontFamily: 'GoogleSans',
+                      ),
+                    ),
+                  ),
+                  Text(
+                    'Hien',
+                    style: TextStyle(
+                      fontFamily: 'GoogleSans',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                child: ElevatedButton(
+                  child: Text('Dang nhap'),
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue,
+                    onPrimary: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    ),
+                    textStyle: TextStyle(
+                      fontFamily: 'GoogleSans',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+                height: 30.0,
+                width: double.infinity,
               ),
             ],
           ),
