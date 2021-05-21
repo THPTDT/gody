@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gody/forgot_password.dart';
 
 class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
@@ -11,7 +12,7 @@ class _LoginScreenState extends State<LoginScreen> {
       home: Scaffold(
         body: Container(
           alignment: Alignment.center,
-          padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 20.0),
+          padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -26,6 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   fontSize: 30.0,
                 ),
               ),
+              Padding(padding: EdgeInsets.fromLTRB(0, 30, 0, 30)),
               TextField(
                 decoration: InputDecoration(
                   labelText: 'Username',
@@ -40,6 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
+              Padding(padding: EdgeInsets.fromLTRB(0, 30, 0, 30)),
               Stack(
                 alignment: AlignmentDirectional.centerEnd,
                 children: [
@@ -68,6 +71,22 @@ class _LoginScreenState extends State<LoginScreen> {
                   )
                 ],
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                  child: Text('Quen mat khau?',style: TextStyle(
+                    fontFamily: 'GoogleSans',
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0,
+                  ),),
+                  onTap: () {
+                    Navigator.push(context, new MaterialPageRoute(builder: (context) => ForgotPassword()));
+                  },),
+                ],
+              ),
+              Padding(padding: EdgeInsets.fromLTRB(0, 30, 0, 30)),
               SizedBox(
                 child: ElevatedButton(
                   child: Text('Đăng nhập'),
@@ -85,7 +104,36 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                height: 30.0,
+                height: 50.0,
+                width: double.infinity,
+              ),
+              Padding(padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 15.0),),
+                Center(child: Text('HOAC', style: TextStyle(
+                  fontSize: 20.0,
+                  fontFamily: 'GoogleSans',
+                  ),
+                ),
+              ),
+              SizedBox(
+                child: ElevatedButton(
+                  child: Text('Đăng ky'),
+                  onPressed: () {
+                    Navigator.push(context, new MaterialPageRoute(builder: (context) => SignIn()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue,
+                    onPrimary: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    ),
+                    textStyle: TextStyle(
+                      fontFamily: 'GoogleSans',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+                height: 50.0,
                 width: double.infinity,
               ),
             ],

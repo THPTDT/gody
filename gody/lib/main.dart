@@ -56,8 +56,10 @@ class _SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
         body: Container(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(child: Image.asset('assets/images/logo.png', height: 175.0,),),
+              Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10),),
               CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.lightBlue),
               ),
@@ -97,7 +99,7 @@ class _IntroScreenState extends State<IntroScreen> {
           bodyTextStyle: TextStyle(
               fontFamily: 'GoogleSans',
               fontSize: 18.0,
-              fontWeight: FontWeight.w600),
+              fontWeight: FontWeight.normal),
           pageColor: Colors.white,
         ),
       ),
@@ -115,7 +117,7 @@ class _IntroScreenState extends State<IntroScreen> {
           bodyTextStyle: TextStyle(
               fontFamily: 'GoogleSans',
               fontSize: 18.0,
-              fontWeight: FontWeight.w600),
+              fontWeight: FontWeight.normal),
         ),
       ),
       PageViewModel(
@@ -132,7 +134,7 @@ class _IntroScreenState extends State<IntroScreen> {
           bodyTextStyle: TextStyle(
               fontFamily: 'GoogleSans',
               fontSize: 18.0,
-              fontWeight: FontWeight.w600),
+              fontWeight: FontWeight.normal),
         ),
       ),
     ];
