@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   Text(
-                    'Hien',
+                    'Hiện',
                     style: TextStyle(
                       fontFamily: 'GoogleSans',
                       fontWeight: FontWeight.bold,
@@ -75,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   GestureDetector(
-                  child: Text('Quen mat khau?',style: TextStyle(
+                  child: Text('Quên mật khẩu?',style: TextStyle(
                     fontFamily: 'GoogleSans',
                     color: Colors.blue,
                     fontWeight: FontWeight.bold,
@@ -108,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: double.infinity,
               ),
               Padding(padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 15.0),),
-                Center(child: Text('HOAC', style: TextStyle(
+                Center(child: Text('-HOẶC-', style: TextStyle(
                   fontSize: 20.0,
                   fontFamily: 'GoogleSans',
                   ),
@@ -116,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(
                 child: ElevatedButton(
-                  child: Text('Đăng ky'),
+                  child: Text('Đăng ký'),
                   onPressed: () {
                     Navigator.push(context, new MaterialPageRoute(builder: (context) => SignIn()));
                   },
