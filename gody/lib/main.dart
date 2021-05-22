@@ -6,9 +6,13 @@ import 'package:after_layout/after_layout.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:gody/login_screen.dart';
 import 'package:gody/home_screen.dart';
+import 'package:intl/intl.dart';
 
 //Gọi hàm main() chạy app
-void main() => runApp(MyApp());
+void main() { 
+  final now = DateTime.now();
+  runApp(MyApp());
+}
 
 //Khởi tạo lớp MyApp
 class MyApp extends StatelessWidget {

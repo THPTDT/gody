@@ -24,6 +24,7 @@ dependencies:
   shared_preferences: ^2.0.5
   after_layout: ^1.1.0
   introduction_screen: ^2.1.0
+  intl: any
   flutter:
     sdk: flutter
 
