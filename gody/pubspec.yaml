@@ -54,6 +54,9 @@ flutter:
      - assets/images/timetable.png
      - assets/images/point.png
      - assets/images/logo.png
+     - assets/images/google.png
+     - assets/images/facebook.png
+     - assets/images/zalo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
