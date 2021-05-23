@@ -16,16 +16,16 @@ class _SignInState extends State<SignIn> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Center(child: Image.asset('assets/images/logo.png', height: 70.0),),
+              Center(child: Image.asset('assets/images/logo.png', height: 60.0),),
               Padding(padding: EdgeInsets.only(top: 10.0, bottom: 10.0)),
-              Center(child: Text('DANG KY', style: TextStyle(
+              Center(child: Text('ĐĂNG KÝ', style: TextStyle(
                 fontFamily: 'GoogleSans',
                 fontSize: 30.0,
               ),)),
               Padding(padding: EdgeInsets.only(top: 10.0, bottom: 10.0)),
               TextField(decoration: InputDecoration(
                 labelText: 'Username',
-                hintText: 'Nhap ten nguoi dung moi',
+                hintText: 'Nhập tên tài khoản người dùng mới',
                 labelStyle: TextStyle(
                   fontFamily: 'GoogleSans',
                   fontWeight: FontWeight.bold,
@@ -35,7 +35,7 @@ class _SignInState extends State<SignIn> {
               Padding(padding: EdgeInsets.only(top: 10.0, bottom: 10.0)),
               TextField(decoration: InputDecoration(
                 labelText: 'Email',
-                hintText: 'Nhap email nguoi dung moi',
+                hintText: 'Nhập email người dùng mới',
                 labelStyle: TextStyle(
                   fontFamily: 'GoogleSans',
                   fontWeight: FontWeight.bold,
@@ -47,7 +47,7 @@ class _SignInState extends State<SignIn> {
                 obscureText: true,
                 decoration: InputDecoration(
                 labelText: 'Password',
-                hintText: 'Nhap mat khau nguoi dung moi',
+                hintText: 'Nhập mật khẩu người dùng mới',
                 labelStyle: TextStyle(
                   fontFamily: 'GoogleSans',
                   fontWeight: FontWeight.bold,
@@ -59,7 +59,7 @@ class _SignInState extends State<SignIn> {
                 obscureText: true,
                 decoration: InputDecoration(
                 labelText: 'Password',
-                hintText: 'Nhap lai mat khau nguoi dung moi',
+                hintText: 'Nhập lại mật khẩu người dùng mới',
                 labelStyle: TextStyle(
                   fontFamily: 'GoogleSans',
                   fontWeight: FontWeight.bold,
@@ -71,7 +71,7 @@ class _SignInState extends State<SignIn> {
                 height: 50.0,
                 child: ElevatedButton(
                   onPressed: (){},
-                  child: Text('Dang ky'),
+                  child: Text('Đăng ký'),
                   style: ElevatedButton.styleFrom(
                     primary: Colors.blue,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),),
@@ -79,12 +79,12 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
               ),
-              Center(child: Text('-HOAC-',style: TextStyle(
+              Center(child: Text('-HOẶC-',style: TextStyle(
                 fontFamily: 'GoogleSans',
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
               ),)),
-              Center(child: Text('Dang nhap voi:',style: TextStyle(
+              Center(child: Text('Đăng nhập với:',style: TextStyle(
                 fontFamily: 'GoogleSans',
                 fontSize: 14.0,
               ))),
