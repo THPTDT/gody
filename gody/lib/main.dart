@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:after_layout/after_layout.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:gody/login_screen.dart';
+import 'package:gody/start_up.dart';
 import 'package:gody/home_screen.dart';
 import 'package:intl/intl.dart';
 
@@ -62,7 +62,7 @@ class _SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Center(child: Image.asset('assets/images/logo.png', height: 175.0,),),
+              Image.asset('assets/images/logo.png', height: 175.0,),
               Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10),),
               CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.lightBlue),
@@ -176,7 +176,7 @@ class _IntroScreenState extends State<IntroScreen> {
         nextColor: Colors.blue,
         onDone: () {
           Navigator.push(context,
-              new MaterialPageRoute(builder: (context) => LoginScreen()));
+              new MaterialPageRoute(builder: (context) => StartUp()));
         },
       ),
     );

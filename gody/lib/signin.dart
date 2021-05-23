@@ -66,6 +66,7 @@ class _SignInState extends State<SignIn> {
                   color: Colors.black54,
                 ),
               ),),
+              Padding(padding: EdgeInsets.only(top: 10.0, bottom: 10.0)),
               SizedBox(
                 width: double.infinity,
                 height: 50.0,
@@ -78,22 +79,6 @@ class _SignInState extends State<SignIn> {
                     textStyle: TextStyle(fontFamily: 'GoogleSans', fontWeight: FontWeight.bold, color: Colors.white),
                   ),
                 ),
-              ),
-              Center(child: Text('-HOẶC-',style: TextStyle(
-                fontFamily: 'GoogleSans',
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),)),
-              Center(child: Text('Đăng nhập với:',style: TextStyle(
-                fontFamily: 'GoogleSans',
-                fontSize: 14.0,
-              ))),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-
-                ],
               ),
             ],
           ),
