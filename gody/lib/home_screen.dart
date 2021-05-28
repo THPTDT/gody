@@ -7,6 +7,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
+  String _textButton = "Hoc ki 1";
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: DefaultTabController(
@@ -37,10 +38,117 @@ class _HomeState extends State<Home> {
             ),
           ),
           body: TabBarView(
-            children: [],
+            children: [
+              Column(
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    height: 50.0,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          child: ElevatedButton(
+                            onPressed: () {
+                              _stateChange();
+                            },
+                            child: Text(_textButton),
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.blue,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  GridView.count(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 5.0,
+                    crossAxisSpacing: 5.0,
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
     );
   }
+
+  void _stateChange() {
+    setState(() {
+      _textButton = "Hoc ki 2";
+    });
+  }
+}
+
+class MonHoc {
+  final String title;
+  final Image image;
+  final bool isChecked;
+  MonHoc({
+    required this.title,
+    required this.image,
+    required this.isChecked,
+  });
+}
+
+List<MonHoc> monhoc = <MonHoc>[
+  MonHoc(
+      title: 'Toan',
+      image: Image.asset('assets/images/zalo.png', height: 30.0),
+      isChecked: false),
+  MonHoc(
+      title: 'The Duc',
+      image: Image.asset('assets/images/zalo.png', height: 30.0),
+      isChecked: false),
+  MonHoc(
+      title: 'Dia Li',
+      image: Image.asset('assets/images/zalo.png', height: 30.0),
+      isChecked: false),
+  MonHoc(
+      title: 'Lich Su',
+      image: Image.asset('assets/images/zalo.png', height: 30.0),
+      isChecked: false),
+  MonHoc(
+      title: 'Tin Hoc',
+      image: Image.asset('assets/images/zalo.png', height: 30.0),
+      isChecked: false),
+  MonHoc(
+      title: 'Quoc Phong',
+      image: Image.asset('assets/images/zalo.png', height: 30.0),
+      isChecked: false),
+  MonHoc(
+      title: 'Sinh Hoc',
+      image: Image.asset('assets/images/zalo.png', height: 30.0),
+      isChecked: false),
+  MonHoc(
+      title: 'Anh Van',
+      image: Image.asset('assets/images/zalo.png', height: 30.0),
+      isChecked: false),
+  MonHoc(
+      title: 'Hoa Hoc',
+      image: Image.asset('assets/images/zalo.png', height: 30.0),
+      isChecked: false),
+  MonHoc(
+      title: 'Vat Li',
+      image: Image.asset('assets/images/zalo.png', height: 30.0),
+      isChecked: false),
+  MonHoc(
+      title: 'Cong Nghe',
+      image: Image.asset('assets/images/zalo.png', height: 30.0),
+      isChecked: false),
+  MonHoc(
+      title: 'Ngu Van',
+      image: Image.asset('assets/images/zalo.png', height: 30.0),
+      isChecked: false),
+  MonHoc(
+      title: 'GDCD',
+      image: Image.asset('assets/images/zalo.png', height: 30.0),
+      isChecked: false)
+];
+
+class CheckBox {
+  Map<String, bool> checked =
+      Map.fromIterable(monhoc, key: (v) => v.title, value: (v) => v.isChecked);
 }
