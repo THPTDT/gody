@@ -76,15 +76,22 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   GestureDetector(
-                  child: Text('Quên mật khẩu?',style: TextStyle(
-                    fontFamily: 'GoogleSans',
-                    color: Colors.blue,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15.0,
-                  ),),
-                  onTap: () {
-                    Navigator.push(context, new MaterialPageRoute(builder: (context) => ForgotPassword()));
-                  },),
+                    child: Text(
+                      'Quên mật khẩu?',
+                      style: TextStyle(
+                        fontFamily: 'GoogleSans',
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15.0,
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => ForgotPassword()));
+                    },
+                  ),
                 ],
               ),
               Padding(padding: EdgeInsets.fromLTRB(0, 30, 0, 30)),
@@ -108,26 +115,76 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 50.0,
                 width: double.infinity,
               ),
-              Padding(padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 15.0),),
-                Center(child: Text('-HOẶC-', style: TextStyle(
-                  fontSize: 14.0,
-                  fontFamily: 'GoogleSans',
+              Padding(
+                padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 15.0),
+              ),
+              Center(
+                child: Text(
+                  '-HOẶC-',
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontFamily: 'GoogleSans',
                   ),
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: 10.0, bottom: 10.0)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: (){},
-                    child: Image.asset('assets/images/facebook.png', height: 50.0,),),
-                  GestureDetector(child: Image.asset('assets/images/google.png', height: 50.0,),
-                  onTap: (){},),
-                  GestureDetector(child: Image.asset('assets/images/zalo.png', height: 50.0,),
-                  onTap: (){},),
-                ],
+              SizedBox(
+                height: 50,
+                width: double.infinity,
+                child: ElevatedButton(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/images/facebook.png', height: 30.0),
+                      Text('Dang nhap voi Facebook',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'GoogleSans',
+                            fontSize: 20,
+                          )),
+                    ],
+                  ),
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue,
+                    alignment: Alignment.center,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 10, 0, 15),
+              ),
+              SizedBox(
+                height: 50,
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.deepOrange,
+                      alignment: Alignment.center,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20.0),
+                        ),
+                      )),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/images/google.png', height: 30.0),
+                      Text('Dang nhap voi Google',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'GoogleSans',
+                            fontSize: 20,
+                          )),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
