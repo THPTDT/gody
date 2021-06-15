@@ -6,10 +6,11 @@ import 'package:after_layout/after_layout.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:gody/start_up.dart';
 import 'package:gody/home_screen.dart';
+import 'package:gody/login_screen.dart';
 import 'package:intl/intl.dart';
 
 //Gọi hàm main() chạy app
-void main() { 
+void main() {
   final now = DateTime.now();
   runApp(MyApp());
 }
@@ -36,13 +37,12 @@ class _SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
     //Xử lý bất đồng bộ để lấy giá trị trả về của hàm kiemtraSeen
     SharedPreferences prefs =
         await SharedPreferences.getInstance(); //Đợi lấy giá trị của prefs
-    bool _seen = (prefs.getBool('seen') ??
-        false); //Kiểm tra giá trị của biến seen, Nếu prefs null sẽ lấy giá trị false ngược lại lấy giá trị của prefs
-    if (_seen) {
-      //Nếu seen=true
-      Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => new Home()));
-    } else {
+    final bool _seen = (prefs.getBool('seen') ?? false);
+//Kiểm tra giá trị của biến seen, Nếu prefs null sẽ lấy giá trị false ngược lại lấy giá trị của prefs
+    if (_seen == true) {
+      //Nếu seen=true_seen == true && _logedin
+      LoginChecked();
+    } else if (_seen == false) {
       await prefs.setBool('seen', true);
       Navigator.of(context).pushReplacement(
           new MaterialPageRoute(builder: (context) => new IntroScreen()));
@@ -62,17 +62,23 @@ class _SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/images/logo.png', height: 175.0,),
-              Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10),),
+              Image.asset(
+                'assets/images/logo.png',
+                height: 175.0,
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+              ),
               CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.lightBlue),
               ),
-              Center(child: Text(' Loading... ',
-                  style: TextStyle(
-                    fontFamily: 'GoogleSans',
-                    fontSize: 35.0,
-                    fontWeight: FontWeight.bold,
-              ))),
+              Center(
+                  child: Text(' Loading... ',
+                      style: TextStyle(
+                        fontFamily: 'GoogleSans',
+                        fontSize: 35.0,
+                        fontWeight: FontWeight.bold,
+                      ))),
             ],
           ),
         ),
@@ -150,23 +156,26 @@ class _IntroScreenState extends State<IntroScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        title: Center(child: Text('GODY',
-        style: TextStyle(
-          fontFamily: 'GoogleSans',
-          fontSize: 30.0,
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
-        ))),
+        title: Center(
+            child: Text('GODY',
+                style: TextStyle(
+                  fontFamily: 'GoogleSans',
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ))),
       ),
       body: IntroductionScreen(
         globalBackgroundColor: Colors.white,
         pages: getPages(),
         showDoneButton: true,
-        done: const Text('Done',
-            style: TextStyle(
-                fontFamily: 'GoogleSans',
-                color: Colors.black,
-                fontWeight: FontWeight.bold),),
+        done: const Text(
+          'Done',
+          style: TextStyle(
+              fontFamily: 'GoogleSans',
+              color: Colors.black,
+              fontWeight: FontWeight.bold),
+        ),
         next: const Text('Next',
             style: TextStyle(
                 fontFamily: 'GoogleSans',
@@ -175,8 +184,8 @@ class _IntroScreenState extends State<IntroScreen> {
         doneColor: Colors.blue,
         nextColor: Colors.blue,
         onDone: () {
-          Navigator.push(context,
-              new MaterialPageRoute(builder: (context) => StartUp()));
+          Navigator.push(
+              context, new MaterialPageRoute(builder: (context) => StartUp()));
         },
       ),
     );
