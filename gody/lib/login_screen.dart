@@ -1,11 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:gody/forgot_password.dart';
 import 'package:gody/signin.dart';
+import 'package:gody/home_screen.dart';
 import 'main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+bool logedin = false;
+
 class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
+}
+
+class LoginChecked {
+  @override
+  void CheckedLogin(BuildContext context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool logedin = (prefs.getBool('logedin') ?? false);
+    if (logedin) {
+      Navigator.of(context).pushReplacement(
+          new MaterialPageRoute(builder: (context) => new Home()));
+    } else {
+      Navigator.of(context).pushReplacement(
+          new MaterialPageRoute(builder: (context) => new LoginScreen()));
+    }
+  }
+}
+
+void PressButton(BuildContext context) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  logedin = await prefs.setBool('logedin', true);
 }
 
 class _LoginScreenState extends State<LoginScreen> {
@@ -146,7 +169,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           )),
                     ],
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    PressButton;
+                    LoginChecked();
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.blue,
                     alignment: Alignment.center,
