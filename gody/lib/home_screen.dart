@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+bool hk = true;
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -7,7 +9,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
-  String _textButton = "Hoc ki 1";
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: DefaultTabController(
@@ -30,10 +31,10 @@ class _HomeState extends State<Home> {
             elevation: 1.0,
             bottom: TabBar(
               tabs: [
-                Tab(text: 'Diem'),
+                Tab(text: 'Điểm'),
                 Tab(text: 'TKB'),
-                Tab(text: 'Cong viec'),
-                Tab(text: 'Khac'),
+                Tab(text: 'Công việc'),
+                Tab(text: 'Khác'),
               ],
             ),
           ),
@@ -50,9 +51,11 @@ class _HomeState extends State<Home> {
                         SizedBox(
                           child: ElevatedButton(
                             onPressed: () {
-                              _stateChange();
+                              setState(() {
+                                hk = !hk;
+                              });
                             },
-                            child: Text(_textButton),
+                            child: hk ? Text('Học kì 1') : Text('Học kì 2'),
                             style: ElevatedButton.styleFrom(
                               primary: Colors.blue,
                             ),
@@ -65,6 +68,7 @@ class _HomeState extends State<Home> {
                     crossAxisCount: 2,
                     mainAxisSpacing: 5.0,
                     crossAxisSpacing: 5.0,
+                    children:hk ? ,
                   ),
                 ],
               ),
@@ -74,81 +78,4 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-
-  void _stateChange() {
-    setState(() {
-      _textButton = "Hoc ki 2";
-    });
-  }
-}
-
-class MonHoc {
-  final String title;
-  final Image image;
-  final bool isChecked;
-  MonHoc({
-    required this.title,
-    required this.image,
-    required this.isChecked,
-  });
-}
-
-List<MonHoc> monhoc = <MonHoc>[
-  MonHoc(
-      title: 'Toan',
-      image: Image.asset('assets/images/zalo.png', height: 30.0),
-      isChecked: false),
-  MonHoc(
-      title: 'The Duc',
-      image: Image.asset('assets/images/zalo.png', height: 30.0),
-      isChecked: false),
-  MonHoc(
-      title: 'Dia Li',
-      image: Image.asset('assets/images/zalo.png', height: 30.0),
-      isChecked: false),
-  MonHoc(
-      title: 'Lich Su',
-      image: Image.asset('assets/images/zalo.png', height: 30.0),
-      isChecked: false),
-  MonHoc(
-      title: 'Tin Hoc',
-      image: Image.asset('assets/images/zalo.png', height: 30.0),
-      isChecked: false),
-  MonHoc(
-      title: 'Quoc Phong',
-      image: Image.asset('assets/images/zalo.png', height: 30.0),
-      isChecked: false),
-  MonHoc(
-      title: 'Sinh Hoc',
-      image: Image.asset('assets/images/zalo.png', height: 30.0),
-      isChecked: false),
-  MonHoc(
-      title: 'Anh Van',
-      image: Image.asset('assets/images/zalo.png', height: 30.0),
-      isChecked: false),
-  MonHoc(
-      title: 'Hoa Hoc',
-      image: Image.asset('assets/images/zalo.png', height: 30.0),
-      isChecked: false),
-  MonHoc(
-      title: 'Vat Li',
-      image: Image.asset('assets/images/zalo.png', height: 30.0),
-      isChecked: false),
-  MonHoc(
-      title: 'Cong Nghe',
-      image: Image.asset('assets/images/zalo.png', height: 30.0),
-      isChecked: false),
-  MonHoc(
-      title: 'Ngu Van',
-      image: Image.asset('assets/images/zalo.png', height: 30.0),
-      isChecked: false),
-  MonHoc(
-      title: 'GDCD',
-      image: Image.asset('assets/images/zalo.png', height: 30.0),
-      isChecked: false)
-];
-
-class CheckBox {
-  Map<String, bool> checked =
-      Map.fromIterable(monhoc, key: (v) => v.title, value: (v) => v.isChecked);
 }

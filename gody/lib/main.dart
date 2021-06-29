@@ -41,7 +41,7 @@ class _SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
 //Kiểm tra giá trị của biến seen, Nếu prefs null sẽ lấy giá trị false ngược lại lấy giá trị của prefs
     if (_seen == true) {
       //Nếu seen=true_seen == true && _logedin
-      LoginChecked();
+      LoginChecked.CheckedLogin;
     } else if (_seen == false) {
       await prefs.setBool('seen', true);
       Navigator.of(context).pushReplacement(

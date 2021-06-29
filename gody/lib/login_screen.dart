@@ -12,8 +12,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginChecked {
-  @override
-  void CheckedLogin(BuildContext context) async {
+  static void CheckedLogin(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool logedin = (prefs.getBool('logedin') ?? false);
     if (logedin) {
@@ -123,7 +122,10 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 child: ElevatedButton(
                   child: Text('Đăng nhập'),
-                  onPressed: () {},
+                  onPressed: () {
+                    PressButton;
+                    LoginChecked.CheckedLogin;
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.blue,
                     onPrimary: Colors.white,
@@ -169,10 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           )),
                     ],
                   ),
-                  onPressed: () {
-                    PressButton;
-                    LoginChecked();
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     primary: Colors.blue,
                     alignment: Alignment.center,
