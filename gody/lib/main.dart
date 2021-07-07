@@ -11,7 +11,6 @@ import 'package:intl/intl.dart';
 
 //Gọi hàm main() chạy app
 void main() {
-  final now = DateTime.now();
   runApp(MyApp());
 }
 
@@ -38,10 +37,16 @@ class _SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
     SharedPreferences prefs =
         await SharedPreferences.getInstance(); //Đợi lấy giá trị của prefs
     final bool _seen = (prefs.getBool('seen') ?? false);
-//Kiểm tra giá trị của biến seen, Nếu prefs null sẽ lấy giá trị false ngược lại lấy giá trị của prefs
+    final bool isLoggedIn = (prefs.getBool('logged_in') ?? false);
+
     if (_seen == true) {
-      //Nếu seen=true_seen == true && _logedin
-      LoginChecked.CheckedLogin;
+      if (isLoggedIn == true) {
+        Navigator.push(
+            context, new MaterialPageRoute(builder: (context) => new Home()));
+      } else {
+        Navigator.push(context,
+            new MaterialPageRoute(builder: (context) => new LoginScreen()));
+      }
     } else if (_seen == false) {
       await prefs.setBool('seen', true);
       Navigator.of(context).pushReplacement(
