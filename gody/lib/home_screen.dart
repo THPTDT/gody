@@ -10,6 +10,11 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
+  void initState() {
+    super.initState();
+    IsChecked();
+  }
+
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: DefaultTabController(
@@ -61,45 +66,60 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   Padding(padding: EdgeInsets.fromLTRB(0, 20, 0, 20)),
-                  Expanded(
+                  Flexible(
                     child: GridView.count(
                       shrinkWrap: true,
                       crossAxisCount: 2,
                       mainAxisSpacing: 5.0,
                       crossAxisSpacing: 5.0,
-                      children: List.generate(15, (index) {
-                        return Card(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(hki[index].tenMon,
-                                  style: TextStyle(
-                                    fontFamily: 'GoogleSans',
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 25.0,
-                                  )),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
-                              ),
-                              Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(hki[index].CheckIfNull().toString(),
-                                        style: TextStyle(
-                                            fontFamily: 'GoogleSans',
-                                            fontSize: 30.0,
-                                            fontWeight: FontWeight.w600)),
-                                    Padding(
-                                        padding:
-                                            EdgeInsets.fromLTRB(0, 10, 30, 10),
-                                        child: Image.asset(hki[index].icon,
-                                            height: 45))
-                                  ]),
-                            ],
-                          ),
-                        );
+                      children: List.generate(DiemHKI.length, (index) {
+                        return GestureDetector(
+                            onTap: () {},
+                            child: Card(
+                                elevation: 2.0,
+                                child: SizedBox(
+                                  height: 40.0,
+                                  width: 40.0,
+                                  child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(DiemHKI[index].tenMon,
+                                            style: TextStyle(
+                                              fontFamily: 'GoogleSans',
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 25.0,
+                                            )),
+                                        Padding(
+                                          padding:
+                                              EdgeInsets.fromLTRB(0, 20, 0, 20),
+                                        ),
+                                        Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                  DiemHKI[index]
+                                                      .CheckIfNull()
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                      fontFamily: 'GoogleSans',
+                                                      fontSize: 30.0,
+                                                      fontWeight:
+                                                          FontWeight.w600)),
+                                              Padding(
+                                                  padding: EdgeInsets.fromLTRB(
+                                                      0, 10, 30, 10),
+                                                  child: Image.asset(
+                                                      DiemHKI[index].icon,
+                                                      height: 45))
+                                            ]),
+                                      ]),
+                                )));
                       }),
                     ),
                   ),

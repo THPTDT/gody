@@ -89,3 +89,7 @@ List<HKI> hki = [
   theduc,
   van
 ];
+List DiemHKI = [];
+void IsChecked() {
+  DiemHKI.addAll(hki.where((element) => element.isChecked == true).toList());
+}
