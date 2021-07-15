@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gody/mon_hoc.dart';
 
 bool hk = true;
 
@@ -12,7 +13,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: DefaultTabController(
-        length: 4,
+        length: 1,
         child: Scaffold(
           appBar: AppBar(
             centerTitle: false,
@@ -30,12 +31,7 @@ class _HomeState extends State<Home> {
             backgroundColor: Colors.white,
             elevation: 1.0,
             bottom: TabBar(
-              tabs: [
-                Tab(text: 'Điểm'),
-                Tab(text: 'TKB'),
-                Tab(text: 'Công việc'),
-                Tab(text: 'Khác'),
-              ],
+              tabs: [Tab(text: 'Điểm')],
             ),
           ),
           body: TabBarView(
@@ -64,10 +60,48 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
-                  GridView.count(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 5.0,
-                    crossAxisSpacing: 5.0,
+                  Padding(padding: EdgeInsets.fromLTRB(0, 20, 0, 20)),
+                  Expanded(
+                    child: GridView.count(
+                      shrinkWrap: true,
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 5.0,
+                      crossAxisSpacing: 5.0,
+                      children: List.generate(15, (index) {
+                        return Card(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(hki[index].tenMon,
+                                  style: TextStyle(
+                                    fontFamily: 'GoogleSans',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 25.0,
+                                  )),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                              ),
+                              Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(hki[index].CheckIfNull().toString(),
+                                        style: TextStyle(
+                                            fontFamily: 'GoogleSans',
+                                            fontSize: 30.0,
+                                            fontWeight: FontWeight.w600)),
+                                    Padding(
+                                        padding:
+                                            EdgeInsets.fromLTRB(0, 10, 30, 10),
+                                        child: Image.asset(hki[index].icon,
+                                            height: 45))
+                                  ]),
+                            ],
+                          ),
+                        );
+                      }),
+                    ),
                   ),
                 ],
               ),

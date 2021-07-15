@@ -3,32 +3,29 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 
 class MonHoc {
-  int? id;
-  String? tenMon;
-  double? DiemTB;
-  String? icon;
+  int id = 0;
+  String tenMon = '';
+  double DiemTB = 0;
+  String icon = '';
   bool isChecked = false;
+  MonHoc(this.id, this.tenMon, this.icon, this.isChecked);
 }
 
-class DiemHKI extends MonHoc {
-  List<double>? DiemHS1;
-  List<double>? DiemHS2;
-  List<double>? DiemHS3;
-  List<double>? DiemTBMon;
+class HKI extends MonHoc {
+  List<double> DiemHS1 = [];
+  List<double> DiemHS2 = [];
+  List<double> DiemHS3 = [];
+  List<double> DiemTBMon = [];
   var TongHSMon;
   double DiemTong = 0;
-  DiemHKI(
-    id,
-    tenMon,
-    icon,
-    isChecked,
-    this.DiemHS1,
-    this.DiemHS2,
-    this.DiemHS3,
-    this.DiemTBMon,
-  );
+  HKI(
+    int id,
+    String tenMon,
+    String icon,
+    bool isChecked,
+  ) : super(id, tenMon, icon, isChecked);
 
-  CheckIfNull(DiemHS1, DiemHS2, DiemHS3, DiemTBMon) {
+  CheckIfNull() {
     DiemTong = 0;
     if (DiemHS1.isNotEmpty) {
       for (var i = 1; i <= DiemHS1.length; i++) {
@@ -44,7 +41,7 @@ class DiemHKI extends MonHoc {
     }
     if (DiemHS3.isNotEmpty) {
       for (var i = 1; i <= DiemHS3.length; i++) {
-        DiemTBMon.add(DiemHS3 * 3);
+        DiemTBMon.add(DiemHS3[i] * 3);
       }
       TongHSMon = TongHSMon + (DiemHS3.length) * 3;
     }
@@ -52,57 +49,43 @@ class DiemHKI extends MonHoc {
       for (var i = 1; i <= DiemTBMon.length; i++) {
         DiemTong = DiemTong + DiemTBMon[i];
       }
-      return this.DiemTB = DiemTong / TongHSMon;
+      return DiemTB = DiemTong / TongHSMon;
     } else {
-      return this.DiemTB = 0;
+      return DiemTB = 0.0;
     }
   }
 }
 
-DiemHKI diali =
-    DiemHKI(1, "Địa lí", "/assets/images", false, null, null, null, null);
-DiemHKI lichsu =
-    DiemHKI(2, "Lịch sử", "asset/images", false, null, null, null, null);
-DiemHKI toan =
-    DiemHKI(3, "Toán", "assets/images", false, null, null, null, null);
-DiemHKI vatli =
-    DiemHKI(4, "Vật lí", "assets/images", false, null, null, null, null);
-DiemHKI anh =
-    DiemHKI(5, "Tiếng Anh", "assets/images", false, null, null, null, null);
-DiemHKI nguvan =
-    DiemHKI(6, "Ngữ Văn", "assets/images", false, null, null, null, null);
-DiemHKI tin = DiemHKI(7, "Tin", "assets/images", false, null, null, null, null);
-DiemHKI gdcd =
-    DiemHKI(8, "GDCD", "assets/images", false, null, null, null, null);
-DiemHKI sinh =
-    DiemHKI(9, "Sinh Học", "assets/images", false, null, null, null, null);
-DiemHKI cn =
-    DiemHKI(10, "Công Nghệ", "assets/images", false, null, null, null, null);
-DiemHKI gdqp =
-    DiemHKI(11, "GDQP", "assets/images", false, null, null, null, null);
-DiemHKI amnhac =
-    DiemHKI(12, "Âm Nhạc", "assets/images", false, null, null, null, null);
-DiemHKI mythuat =
-    DiemHKI(13, "Mỹ Thuật", "assets/images", false, null, null, null, null);
-DiemHKI theduc =
-    DiemHKI(14, "Thể dục", "assets/images", false, null, null, null, null);
-DiemHKI hoahoc =
-    DiemHKI(15, "Hóa học", "assets/images", false, null, null, null, null);
+var vatly = new HKI(1, "Vật lý", "assets/images/vatly.png", true);
+var toan = new HKI(2, "Toán", "assets/images/toan.png", true);
+var tienganh = new HKI(3, "Anh văn", "assets/images/tienganh.png", true);
+var hoahoc = new HKI(4, "Hóa học", "assets/images/hoahoc.png", true);
+var sinh = new HKI(5, "Sinh học", "assets/images/sinh.png", true);
+var amnhac = new HKI(6, "Âm nhạc", "assets/images/amnhac.png", true);
+var gdcd = new HKI(7, "GDCD", "assets/images/gdcd.png", true);
+var gdqp = new HKI(8, "GDQP", "assets/images/gdqp.png", true);
+var mythuat = new HKI(9, "Mỹ thuật", "assets/images/mythuat.png", true);
+var dialy = new HKI(10, "Địa lý", "assets/images/dialy.png", true);
+var cn = new HKI(11, "Công nghệ", "assets/images/cn.png", true);
+var lichsu = new HKI(12, "Lịch Sử", "assets/images/lichsu.png", true);
+var theduc = new HKI(13, "Thể Dục", "assets/images/theduc.png", true);
+var van = new HKI(14, "Ngữ Văn", "assets/images/van.png", true);
+var tinhoc = new HKI(15, "Tin Học", "assets/images/tinhoc.png", true);
 
-List<DiemHKI> diemHKI = [
-  diali,
-  lichsu,
-  anh,
+List<HKI> hki = [
   toan,
-  amnhac,
-  mythuat,
+  tienganh,
   hoahoc,
-  nguvan,
-  tin,
+  sinh,
+  lichsu,
+  dialy,
+  vatly,
+  tinhoc,
   cn,
   gdcd,
-  sinh,
   gdqp,
+  amnhac,
+  mythuat,
   theduc,
-  vatli
+  van
 ];
